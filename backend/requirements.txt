@@ -1,0 +1,13 @@
+fastapi[all]
+uvicorn[standard]
+sqlalchemy[asyncio]
+asyncpg
+alembic
+pydantic
+python-multipart
+pytesseract
+opencv-python-headless
+thefuzz
+python-dotenv
+python-Levenshtein
+pypdfium2
