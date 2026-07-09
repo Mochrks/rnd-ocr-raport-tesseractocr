@@ -1,7 +1,22 @@
+# Virtual Environments
 venv/
-venv-paddle/
-node_modules/
+env/
+.venv/
+
+# Python Cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Environment Variables
 .env
+.env.*
+!.env.example
+
+# OS Files
 .DS_Store
+Thumbs.db
+
+# Project Specific
+uploads/

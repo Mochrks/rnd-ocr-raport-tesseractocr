@@ -1,24 +1,19 @@
-import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.v1.endpoints import router as api_router
-
-# Configure logging OCR
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
+from app.core.config import settings
+from app.core.logger import logger
 
 app = FastAPI(
-    title="Doc Report OCR Service",
+    title=settings.PROJECT_NAME,
     description="REST API for OCR scanning and extracting data from student report cards.",
-    version="1.0.0",
+    version=settings.VERSION,
 )
 
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -26,6 +21,6 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to Intelligent Academic Report OCR Service API"}
+    return {"message": f"Welcome to {settings.PROJECT_NAME} API"}
 
 app.include_router(api_router)

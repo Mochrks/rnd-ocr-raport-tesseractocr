@@ -11,3 +11,5 @@ thefuzz
 python-dotenv
 python-Levenshtein
 pypdfium2
+
+pydantic-settings
